@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورشة أبو رهيب العنصار للحديد والألمنيوم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e293b; 
+            --secondary-color: #475569; 
+            --accent-color: #d97706; 
+            --light-bg: #f8fafc;
+            --text-dark: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        nav ul a:hover {
+            color: var(--accent-color);
+        }
+
+        /* القسم الرئيسي الخلفية */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 45px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #cbd5e1;
+        }
+
+        .btn-main {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            background-color: #b45309;
+            transform: translateY(-3px);
+        }
+
+        .services {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            padding: 20px 15px 10px;
+            font-size: 22px;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            padding: 0 15px 20px;
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .contact-info {
+            background-color: #e2e8f0;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .info-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .info-item i {
+            color: var(--accent-color);
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        /* 🛠️ الكود المصلح للأزرار لمنع انقلاب أو قص النصوص داخل الدائرة */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            direction: ltr !important; /* هذا السطر يمنع قلب الحروف تماماً */
+        }
+
+        .social-btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-width: 160px;
+        }
+
+        .facebook { background-color: #1877f2; }
+        .instagram { background-color: #e1306c; }
+        .whatsapp { background-color: #25d366; }
+
+        .social-btn i {
+            font-size: 20px;
+        }
+
+        .social-btn span {
+            font-family: 'Cairo', sans-serif;
+            white-space: nowrap;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            color: #fff;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 32px; }
+            .hero-content p { font-size: 16px; }
+            nav ul { display: none; }
+            .social-btn { width: 100%; max-width: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <div>ورشة أبو رهيب <span>العنصار</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#contact">العنوان والتواصل</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero" style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('main-workshop.jpg') no-repeat center center/cover;">
+        <div class="hero-content">
+            <h1>ورشة أبو رهيب العنصار للحديد والألمنيوم</h1>
+            <p>دقة في التصميم، متانة في التنفيذ. نلبي كافة طلباتكم من أرقى التشكيلات الحديدية والألمنيوم بأحدث الموديلات العصريّة.</p>
+            <a href="#contact" class="btn-main">اطلب الآن / اتصل بنا</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">خدماتنا المتميزة</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <img src="doors.jpg" alt="أبواب" class="service-img">
+                <h3>الأبواب</h3>
+                <p>تفصيل وتركيب أبواب حديد وألمنيوم بأعلى درجات الأمان والجمال، مقاومة للعوامل الجوية وبأشكال مودرن وكلاسيك.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="windows.jpg" alt="شبابيك وحمايات" class="service-img">
+                <h3>الشبابيك والحمايات</h3>
+                <p>شبابيك حديد مشغول (فورجيه) بتصاميم هندسية دقيقة وأشكال راقية تحمي منزلك وتمنحه لمسة فنية فريدة.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="beds.jpg" alt="سريرات" class="service-img">
+                <h3>سريرات</h3>
+                <p>صناعة سريرات حديد متينة وطبية وتصاميم فريدة تدوم طويلاً، بالإضافة إلى تفصيل مختلف أنواع الأثاث المعدني حسب الطلب.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="canopies.jpg" alt="الطيقان الألمنيوم" class="service-img">
+                <h3>الطيقان الألمنيوم</h3>
+                <p>تصميم وتجهيز طيقات ألمنيوم فخمة عازلة ومقاومة، وحمايات ومظلات متينة بقدرة صمود عالية تحت الشمس والأمطار.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact-info">
+        <h2 class="section-title">موقعنا ووسائل التواصل</h2>
+        <div class="info-box">
+            
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <strong>العنوان الإقليمي:</strong>
+                <p>اليمن, تعز - الصلو - قرية الموسطة (جوار مدرسة الفاروق)</p>
+            </div>
+
+            <div class="info-item">
+                <i class="fa-solid fa-star"></i>
+                <strong>شعارنا:</strong>
+                <p>الجودة والأمانة في العمل هي سر نجاحنا.</p>
+            </div>
+
+            <h3>تابعونا وتواصلوا معنا عبر الأزرار الرسمية:</h3>
+            
+            <div class="social-links">
+                
+                <a href="https://www.facebook.com/share/19NBMoaC2X/" target="_blank" class="social-btn facebook" title="فيسبوك">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span>فيسبوك</span>
+                </a>
+                
+                <a href="https://www.instagram.com/rhybbdllhhmdnm?stkn=YzNhaDFsYXp5eGEy" target="_blank" class="social-btn instagram" title="إنستغرام">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>إنستغرام</span>
+                </a>
+                
+                <a href="https://wa.me/967734190443" target="_blank" class="social-btn whatsapp" title="واتساب">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>واتساب</span>
+                </a>
+                
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ورشة أبو رهيب العنصار للحديد والألمنيوم. جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>
